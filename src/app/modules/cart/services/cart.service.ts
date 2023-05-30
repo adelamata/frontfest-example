@@ -8,9 +8,8 @@ export class CartService {
   constructor(private readonly localStorageService: LocalStorageService) { }
 
   addToCart(product: Cart) {
-    let cartList = [];
-    if (JSON.parse(this.localStorageService.get({ key: 'cart' })!)) {
-      cartList = JSON.parse(this.localStorageService.get({ key: 'cart' })!)
+    let cartList = JSON.parse(this.localStorageService.get({ key: 'cart' })!);
+    if (cartList.length) {
       if (cartList.filter((element: Cart) => element.name === product.name).length > 0) {
         cartList.filter((element: Cart) => element.name === product.name)
           .forEach((element: Cart) => element.amount = element.amount! + 1)
