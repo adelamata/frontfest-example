@@ -1,27 +1,28 @@
 <div class="container">
-    <h3>Carro de compras</h3>
-    <table class="table table-striped">
-        <thead>
-            <tr>
-              <th class="col-md-6" scope="col">Nombre</th>
-              <th class="col-md-2" scope="col">Precio</th>
-              <th class="col-md-2" scope="col">Cantidad</th>
-              <th class="col-md-1" scope="col">Eliminar</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr *ngFor="let product of productsCart">
-              <td>{{product.name}}</td>
-              <td>{{product.price}}</td>
-              <td>{{product.amount}}</td>
-              <td><button (click)="deleteProduct(product)" class="btn btn-danger">eliminar</button></td>
-            </tr>
-            <tr>
-                <td class="col-md-7"></td>
-                <td class="col-md-1">Total</td>
-                <td></td>
-                <td></td>
-            </tr>
-          </tbody>
-      </table>
+  <h3>Carro de compras</h3>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th class="col-md-6" scope="col">Nombre</th>
+        <th class="col-md-2" scope="col">Precio</th>
+        <th class="col-md-2" scope="col">Cantidad</th>
+        <th class="col-md-1" scope="col">Eliminar</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let product of (productsCart$ | async)">
+        <td>{{product.title}}</td>
+        <td>{{product.price}}</td>
+        <td>{{product.amount}}</td>
+        <td><button (click)="deleteProduct(product)" class="btn btn-danger">eliminar</button></td>
+      </tr>
+      <tr>
+        <td class="col-md-7"></td>
+        <td class="col-md-1">Total</td>
+        <td></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <button type="button" class="btn btn-success" routerLink="catalog">Seguir comprando</button>
 </div>

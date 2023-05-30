@@ -1,11 +1,16 @@
-export interface Cart {
-    name: string,
-    amount?: number,
-    price: number
+export interface CartProduct {
+    id: number;
+    title: string;
+    amount?: number;
+    price: number;
 }
 
 export interface Product {
-    title: string,
-    price: number,
-    image: string
+    id: number;
+    title: string;
+    price: number;
+    image: string;
+    category: string;
+    description: string;
+    rating: Object;
 }

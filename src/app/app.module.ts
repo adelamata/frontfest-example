@@ -15,7 +15,7 @@ import { CartModule } from './modules/cart/cart.module';
     AppRoutingModule,
     SharedModule.forChild(),
     CatalogModule,
-    CartModule
+    CartModule.forChild()
   ],
   providers: [],
   bootstrap: [AppComponent]

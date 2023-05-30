@@ -5,7 +5,6 @@ import { CatalogoRoutingModule } from './catalog-routing.module';
 import { CatalogService } from './services/catalog.service';
 import { HttpClientModule } from '@angular/common/http';
 import { CardComponent } from 'src/app/components/card/card.component';
-import { CartService } from '../cart/services/cart.service';
 
 
 
@@ -19,6 +18,6 @@ import { CartService } from '../cart/services/cart.service';
     CatalogoRoutingModule,
     HttpClientModule
   ],
-  providers: [CatalogService, CartService]
+  providers: [CatalogService]
 })
 export class CatalogModule { }

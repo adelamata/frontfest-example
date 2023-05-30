@@ -1,7 +1,8 @@
-import { NgModule } from '@angular/core';
+import { ModuleWithProviders, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CartComponent } from './cart.component';
 import { CartRoutingModule } from './cart-routing.module';
+import { CartService } from './services/cart.service';
 
 
 
@@ -14,4 +15,11 @@ import { CartRoutingModule } from './cart-routing.module';
     CartRoutingModule
   ]
 })
-export class CartModule { }
+export class CartModule {
+  static forChild(): ModuleWithProviders<CartModule> {
+    return {
+      ngModule: CartModule,
+      providers: [CartService]
+    }
+  }
+}

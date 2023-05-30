@@ -1,8 +1,9 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { LocalStorageService } from 'src/app/shared/services/localstorage.service';
-import { Cart, Product } from 'src/app/shared/interfaces/model.interface';
+import { Product } from 'src/app/shared/interfaces/model.interface';
 import { CatalogService } from './services/catalog.service';
 import { CartService } from '../cart/services/cart.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-catalog',
@@ -16,12 +17,15 @@ export class CatalogComponent implements OnInit {
   constructor(
     public readonly catalogService: CatalogService,
     private readonly cartService: CartService,
-    private readonly localStorageService: LocalStorageService
+    private readonly localStorageService: LocalStorageService,
+    private readonly router: Router
   ) { }
 
   ngOnInit(): void { }
 
   addToCart(product: Product) {
-    this.cartService.addToCart({ name: product.title, price: product.price })
+    const { image, category, description, rating, ...productCart} = product;
+    this.cartService.addProduct(productCart);
+    this.router.navigate(['cart']);
   }
 }
