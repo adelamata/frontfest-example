@@ -1,28 +1,33 @@
 <div class="container">
-  <h3>Carro de compras</h3>
-  <table class="table table-striped">
-    <thead>
-      <tr>
-        <th class="col-md-6" scope="col">Nombre</th>
-        <th class="col-md-2" scope="col">Precio</th>
-        <th class="col-md-2" scope="col">Cantidad</th>
-        <th class="col-md-1" scope="col">Eliminar</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let product of (productsCart$ | async)">
-        <td>{{product.title}}</td>
-        <td>{{product.price}}</td>
-        <td>{{product.amount}}</td>
-        <td><button (click)="deleteProduct(product)" class="btn btn-danger">eliminar</button></td>
-      </tr>
-      <tr>
-        <td class="col-md-7"></td>
-        <td class="col-md-1">Total</td>
-        <td></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <button type="button" class="btn btn-success" routerLink="catalog">Seguir comprando</button>
+  <div class="alert alert-warning" role="alert" *ngIf="!(productsCart$ | async)!.length">
+    No hay productos en el carrito de compras!
+  </div>
+  <div class="table-product"  *ngIf="(productsCart$ | async)!.length">
+    <h3>Carro de compras</h3>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th class="col-md-6" scope="col">Nombre</th>
+          <th class="col-md-2" scope="col">Precio</th>
+          <th class="col-md-2" scope="col">Cantidad</th>
+          <th class="col-md-1" scope="col">Eliminar</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let product of (productsCart$ | async)">
+          <td>{{product.title}}</td>
+          <td>{{product.price}}</td>
+          <td>{{product.amount}}</td>
+          <td><button (click)="deleteProduct(product)" class="btn btn-danger">eliminar</button></td>
+        </tr>
+        <tr>
+          <td class="col-md-6 text-end fw-bold">Total</td>
+          <td class="col-md-1 text-start fw-bold">{{total}}</td>
+          <td></td>
+          <td></td>
+        </tr>
+      </tbody>
+    </table>
+    <button type="button" class="btn btn-success" routerLink="catalog">Seguir comprando</button>
+  </div>
 </div>

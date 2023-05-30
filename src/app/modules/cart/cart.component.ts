@@ -10,6 +10,7 @@ import { Observable } from 'rxjs';
 })
 export class CartComponent {
   productsCart$: Observable<Partial<CartProduct>[]> = this.cartService.getCart();
+  total: number = 0;
 
   constructor(private readonly cartService: CartService) {}
 
