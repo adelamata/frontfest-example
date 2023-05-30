@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { CartProduct } from 'src/app/shared/interfaces/model.interface';
+import { CartProduct } from 'src/app/shared/core/interfaces/model.interface';
 import { CartService } from './services/cart.service';
 import { Observable, of, withLatestFrom, map } from 'rxjs';
 

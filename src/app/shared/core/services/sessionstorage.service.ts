@@ -6,6 +6,6 @@ interface SessionStoragePersistObj {}
 @Injectable()
 export class SessionstorageService
   implements PersistInterface<SessionStoragePersistObj> {
-  add(param: Partial<SessionStoragePersistObj>): void {}
+  save(param: Partial<SessionStoragePersistObj>): void {}
   remove(param: Partial<SessionStoragePersistObj>): void {}
 }

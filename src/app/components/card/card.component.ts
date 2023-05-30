@@ -1,23 +1,18 @@
-import { Component, OnInit, Output, Input, EventEmitter } from '@angular/core';
-import { Product } from 'src/app/shared/interfaces/model.interface';
+import { Component, Output, Input, EventEmitter } from '@angular/core';
+import { Product } from 'src/app/shared/core/interfaces/model.interface';
 
 @Component({
   selector: 'app-card',
   templateUrl: './card.component.html',
   styleUrls: ['./card.component.scss']
 })
-export class CardComponent implements OnInit {
-
+export class CardComponent {
   @Input() product!: Product;
   @Output() onSelectProduct = new EventEmitter<Product>();
 
-  constructor() { }
+  imageLoaded = false;
 
-  ngOnInit(): void {
-  }
-
-  selectProduct(selectedProduct: Product){
+  selectProduct(selectedProduct: Product) {
     this.onSelectProduct.emit(selectedProduct);
   }
-
 }

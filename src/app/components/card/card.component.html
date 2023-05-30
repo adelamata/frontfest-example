@@ -1,8 +1,12 @@
 <div class="card">
-    <div class="card-body">
-      <h5 class="card-title">{{product.title}}</h5>
-      <p class="card-text">{{product.price}} €</p>
-      <img class="card-img-top" [src]="product.image" alt="Card image cap">
-      <button (click)="selectProduct(product)" class="btn btn-primary">Go somewhere</button>
+  <div class="card-body">
+    <h5 class="card-title">{{product.title}}</h5>
+    <p class="card-text">{{product.price}} €</p>
+    <div class="card-image">
+      <img [hidden]="!imageLoaded" class="card-img-top" [src]="product.image" alt="Card image cap"
+        (load)="imageLoaded = true">
+      <i [hidden]="imageLoaded" class="loader"></i>
     </div>
+    <button (click)="selectProduct(product)" class="btn btn-primary">Go somewhere</button>
   </div>
+</div>

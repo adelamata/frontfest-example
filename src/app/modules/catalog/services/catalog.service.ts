@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { LocalStorageService } from 'src/app/shared/services/localstorage.service';
+import { LocalStorageService } from 'src/app/shared/core/services/localstorage.service';
 import { Observable } from 'rxjs';
-import { Product } from 'src/app/shared/interfaces/model.interface';
+import { Product } from 'src/app/shared/core/interfaces/model.interface';
 
 @Injectable()
 export class CatalogService {

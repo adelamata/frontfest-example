@@ -1,4 +1,5 @@
-<div class="grid-container">
+<div class="grid-container" *ngIf="(products$ | async); else loading">
   <app-card *ngFor="let product of (products$ | async); let i = index" [product]="product"
     (onSelectProduct)="addToCart($event)"></app-card>
 </div>
+<ng-template #loading><i class="loader"></i> </ng-template>

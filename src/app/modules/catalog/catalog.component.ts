@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
-import { LocalStorageService } from 'src/app/shared/services/localstorage.service';
-import { Product } from 'src/app/shared/interfaces/model.interface';
+import { LocalStorageService } from 'src/app/shared/core/services/localstorage.service';
+import { Product } from 'src/app/shared/core/interfaces/model.interface';
 import { CatalogService } from './services/catalog.service';
 import { CartService } from '../cart/services/cart.service';
 import { Router } from '@angular/router';

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, map } from 'rxjs';
-import { CartProduct } from 'src/app/shared/interfaces/model.interface';
-import { LocalStorageService } from 'src/app/shared/services/localstorage.service';
+import { CartProduct } from 'src/app/shared/core/interfaces/model.interface';
+import { LocalStorageService } from 'src/app/shared/core/services/localstorage.service';
 
 @Injectable()
 export class CartService {
@@ -15,11 +15,7 @@ export class CartService {
     .pipe(map(cart => this.mapToArray(cart)));
 
   constructor(private readonly localStorageService: LocalStorageService) {
-    this.localStorageService.add({
-      key: 'cart',
-      value: JSON.stringify(this.cart)
-    });
-    this.cartSubj$.next(this.cart);
+    this.persistCart(this.cart);
   }
 
   /**
@@ -27,7 +23,7 @@ export class CartService {
    * @param product
    */
   addProduct(product: CartProduct): void {
-    !this.cart[product.id]
+    !(product.id in this.cart)
       ? (this.cart[product.id] = { ...product, amount: 1 })
       : this.cart[product.id] &&
         (this.cart[product.id].amount = this.cart[product?.id].amount! + 1);
@@ -60,7 +56,7 @@ export class CartService {
    * @param cart
    */
   private persistCart(cart: { [id: number]: Partial<CartProduct> }): void {
-    this.localStorageService.add({
+    this.localStorageService.save({
       key: 'cart',
       value: JSON.stringify(cart)
     });
