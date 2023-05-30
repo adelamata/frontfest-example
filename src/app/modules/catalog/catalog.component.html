@@ -1,4 +1,4 @@
 <div class="grid-container">
-  <app-card *ngFor="let product of catalogService.getProducts() | async; let i = index" [product]="product"
+  <app-card *ngFor="let product of (products$ | async); let i = index" [product]="product"
     (onSelectProduct)="addToCart($event)"></app-card>
 </div>

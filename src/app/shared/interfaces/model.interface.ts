@@ -1,10 +1,10 @@
-export interface cart {
+export interface Cart {
     name: string,
     amount: number,
     price: number
 }
 
-export interface product {
+export interface Product {
     title: string,
     price: number,
     image: string
