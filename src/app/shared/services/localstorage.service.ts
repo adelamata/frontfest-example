@@ -7,17 +7,36 @@ interface LocalStoragePersist {
 }
 
 @Injectable()
-export class LocalStorageService
-  implements PersistInterface<LocalStoragePersist> {
+export class LocalStorageService{
   /**
    *
    * @param param
    */
-  add(param: Partial<LocalStoragePersist>): void {}
+  add(param: Partial<LocalStoragePersist>): void {
+    localStorage.setItem(param.key!, param.value!);
+  }
 
   /**
    *
    * @param param
    */
-  remove(param: Partial<LocalStoragePersist>): void {}
+  remove(param: Partial<LocalStoragePersist>): void {
+    localStorage.setItem(param.key!, param.value!);
+  }
+
+   /**
+   *
+   * @param param
+   */
+  get(param: Partial<LocalStoragePersist>) {
+    return localStorage.getItem(param.key!)
+  }
+
+   /**
+   *
+   * @param param
+   */
+  clear() {
+    localStorage.clear();
+  }
 }
