@@ -1,6 +1,6 @@
 export interface Cart {
     name: string,
-    amount: number,
+    amount?: number,
     price: number
 }
 

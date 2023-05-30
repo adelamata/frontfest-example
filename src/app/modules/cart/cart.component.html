@@ -10,23 +10,11 @@
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>Prueba</td>
-              <td>10</td>
-              <td>4</td>
-              <td><button class="btn btn-danger">eliminar</button></td>
-            </tr>
-            <tr>
-                <td>Prueba</td>
-                <td>10</td>
-                <td>4</td>
-                <td><button class="btn btn-danger">eliminar</button></td>
-            </tr>
-            <tr>
-                <td>Prueba</td>
-                <td>10</td>
-                <td>4</td>
-                <td><button class="btn btn-danger">eliminar</button></td>
+            <tr *ngFor="let product of productsCart">
+              <td>{{product.name}}</td>
+              <td>{{product.price}}</td>
+              <td>{{product.amount}}</td>
+              <td><button (click)="deleteProduct(product)" class="btn btn-danger">eliminar</button></td>
             </tr>
             <tr>
                 <td class="col-md-7"></td>
