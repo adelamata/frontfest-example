@@ -3,11 +3,7 @@ import {
   PersistInterface,
   LocalStoragePersist
 } from '../interfaces/persists.interface';
-import { CartProduct } from '../interfaces/model.interface';
 
-export interface exam {
-  [id: number]: Partial<CartProduct>
-}
 
 @Injectable()
 export class LocalStorageService

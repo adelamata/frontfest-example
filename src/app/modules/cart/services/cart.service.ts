@@ -1,14 +1,13 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, map } from 'rxjs';
-import { CartProduct } from 'src/app/shared/core/interfaces/model.interface';
+import { Cart, CartProduct } from 'src/app/shared/core/interfaces/model.interface';
 import {
   LocalStorageService,
-  exam
 } from 'src/app/shared/core/services/localstorage.service';
 
 @Injectable()
 export class CartService {
-  private cart: exam = {};
+  private cart: Cart = {};
 
   private cartSubj$ = new BehaviorSubject<{
     [id: number]: Partial<CartProduct>;

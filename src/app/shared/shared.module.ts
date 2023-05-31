@@ -4,6 +4,7 @@ import { LocalStorageService } from './core/services/localstorage.service';
 
 @NgModule({
   declarations: [],
+  exports: [],
   imports: [CommonModule]
 })
 export class SharedModule {

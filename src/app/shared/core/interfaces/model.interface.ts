@@ -1,16 +1,20 @@
 export interface CartProduct {
-    id: number;
-    title: string;
-    amount?: number;
-    price: number;
+  id: number;
+  title: string;
+  amount?: number;
+  price: number;
 }
 
 export interface Product {
-    id: number;
-    title: string;
-    price: number;
-    image: string;
-    category: string;
-    description: string;
-    rating: Object;
+  id: number;
+  title: string;
+  price: number;
+  image: string;
+  category: string;
+  description: string;
+  rating: Object;
+}
+
+export interface Cart {
+  [id: number]: Partial<CartProduct>;
 }
