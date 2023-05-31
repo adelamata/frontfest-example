@@ -1,5 +1,13 @@
 import { Injectable } from '@angular/core';
-import { PersistInterface, LocalStoragePersist } from '../interfaces/persists.interface';
+import {
+  PersistInterface,
+  LocalStoragePersist
+} from '../interfaces/persists.interface';
+import { CartProduct } from '../interfaces/model.interface';
+
+export interface exam {
+  [id: number]: Partial<CartProduct>
+}
 
 @Injectable()
 export class LocalStorageService
@@ -24,15 +32,24 @@ export class LocalStorageService
    *
    * @param param
    */
-  get(key: string) {
+  get(key: string): string | null {
     return localStorage.getItem(key);
   }
 
   /**
    *
    * @param param
+   * @returns
    */
-  clear() {
+  exists(param: string): boolean {
+    return !!localStorage.getItem(param);
+  }
+
+  /**
+   *
+   * @param param
+   */
+  clear(): void {
     localStorage.clear();
   }
 }
